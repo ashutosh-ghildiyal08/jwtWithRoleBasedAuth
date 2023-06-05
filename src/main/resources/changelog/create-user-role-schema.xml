@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="01" author="Ashutosh">
+    <createTable tableName="users"
+      remarks="A table which contain all user information">
+
+      <column name="id" type="int" >
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="username" type="varchar(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="first_name" type="varchar(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_name" type="varchar(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="password" type="varchar(20)">
+        <constraints nullable="false"/>
+      </column>
+
+    </createTable>
+
+
+    <createTable tableName="roles"
+                 remarks="A table which contain all role information">
+
+      <column name="name" type="varchar(20)">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="description" type="varchar(100)">
+        <constraints nullable="false"/>
+      </column>
+
+    </createTable>
+
+    <createTable tableName="user_role"
+                 remarks="A table which contain user and role mapping information">
+
+      <column name="user_id" type="varchar(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="role_id" type="varchar(20)">
+        <constraints nullable="false" />
+      </column>
+
+
+    </createTable>
+
+  </changeSet>
+
+</databaseChangeLog>
